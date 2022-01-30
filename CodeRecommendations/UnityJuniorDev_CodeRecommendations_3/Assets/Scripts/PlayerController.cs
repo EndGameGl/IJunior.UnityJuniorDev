@@ -8,7 +8,8 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
-
+    [SerializeField] private Vector2 jumpVector;
+    
     private Rigidbody2D _rigidbody;
     private PlayerInputs _inputs;
 
@@ -24,22 +25,23 @@ public class PlayerController : MonoBehaviour
     {
         _inputs.Enable();
         _inputs.Movement.Move.performed += OnPlayerMovement;
+        _inputs.Movement.Jump.performed += OnPlayerJump;
     }
 
     private void OnDisable()
     {
         _inputs.Movement.Move.performed -= OnPlayerMovement;
+        _inputs.Movement.Jump.performed -= OnPlayerJump;
         _inputs.Disable();
     }
-
-    private void FixedUpdate()
-    {
-        _rigidbody.velocity = _currentVelocity * moveSpeed;
-    }
-
-
+    
     private void OnPlayerMovement(InputAction.CallbackContext inputContext)
     {
-        _currentVelocity = inputContext.ReadValue<Vector2>();
+        _rigidbody.velocity = inputContext.ReadValue<Vector2>() * moveSpeed;
+    }
+    
+    private void OnPlayerJump(InputAction.CallbackContext inputContext)
+    {
+        _rigidbody.AddForce(new Vector2(_rigidbody.velocity.x, jumpVector.y), ForceMode2D.Impulse);
     }
 }
