@@ -2,35 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Pool;
+using UnityEngine.Serialization;
 
 public class EnemySpawner : MonoBehaviour
 {
-    private List<BasicEnemy> _spawnedEnemies = new();
+    [SerializeField] private GameObject _target;
 
-    [SerializeField] private GameObject target;
-    [SerializeField] private List<Transform> spawnPositions;
-    [SerializeField] private BasicEnemy basicEnemyPrefab;
-    [SerializeField] private float spawnInterval;
-    [SerializeField] private int poolSize;
+    [Tooltip("Positions from where the enemies will spawn.")] [SerializeField]
+    private List<Transform> _positions;
+
+    [SerializeField] private BasicEnemy _enemyPrefab;
+    [SerializeField] private float _interval;
+    [SerializeField] private int _poolSize;
 
     private Coroutine _enemySpawnerCoroutine;
     private WaitForSeconds _awaiter;
+    private readonly List<BasicEnemy> _spawnedEnemies = new();
 
     private void Start()
     {
-        _awaiter = new WaitForSeconds(spawnInterval);
-        StartCoroutine(SpawnEnemies());
+        _awaiter = new WaitForSeconds(_interval);
+        StartCoroutine(Spawn());
     }
 
-    private IEnumerator SpawnEnemies()
+    private IEnumerator Spawn()
     {
         while (enabled)
         {
             if (GetNextEnemyInstance(out var enemy))
             {
-                SetEnemyPositionToRandomSpawnPoint(enemy);
-                enemy.SetTarget(target.transform);
+                SetRandomPosition(enemy);
+                enemy.SetTarget(_target.transform);
             }
 
             yield return _awaiter;
@@ -47,9 +49,9 @@ public class EnemySpawner : MonoBehaviour
             return true;
         }
 
-        if (newEnemy is null && _spawnedEnemies.Count < poolSize)
+        if (newEnemy is null && _spawnedEnemies.Count < _poolSize)
         {
-            newEnemy = Instantiate(basicEnemyPrefab);
+            newEnemy = Instantiate(_enemyPrefab);
             _spawnedEnemies.Add(newEnemy);
             return true;
         }
@@ -57,9 +59,9 @@ public class EnemySpawner : MonoBehaviour
         return false;
     }
 
-    private void SetEnemyPositionToRandomSpawnPoint(BasicEnemy enemy)
+    private void SetRandomPosition(BasicEnemy enemy)
     {
-        var pointToSpawn = spawnPositions[Random.Range(0, spawnPositions.Count)];
+        var pointToSpawn = _positions[Random.Range(0, _positions.Count)];
         enemy.transform.position = pointToSpawn.position;
     }
 }

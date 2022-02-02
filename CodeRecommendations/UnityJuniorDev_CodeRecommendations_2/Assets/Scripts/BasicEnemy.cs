@@ -1,12 +1,11 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class BasicEnemy : MonoBehaviour
-{
-    private Transform _targetTransform;
+{ 
+    [SerializeField] private float _speed;
     
-    [SerializeField] private float speed;
+    private Transform _targetTransform;
 
     public void SetTarget(Transform targetTransform)
     {
@@ -18,7 +17,7 @@ public class BasicEnemy : MonoBehaviour
         transform.position = Vector2.MoveTowards(
             transform.position, 
             _targetTransform.position, 
-            Time.deltaTime * speed);
+            Time.deltaTime * _speed);
     }
 
     private void OnTriggerEnter2D(Collider2D col)
