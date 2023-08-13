@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -7,27 +8,18 @@ public class CoinRegenerator : MonoBehaviour
     [SerializeField] private float _minRespawnInterval;
     [SerializeField] private float _maxRespawnInterval;
 
-    private float _currentTimer;
-    private float _currentSpawnInterval;
     private GameObject _coinInstance;
 
-    private void Awake()
+    private Coroutine _coinSpawner;
+
+    private void OnEnable()
     {
-        _currentSpawnInterval = GetNextRespawnTime();
+        _coinSpawner = StartCoroutine(SpawnCoins());
     }
 
-    private void Update()
+    private void OnDisable()
     {
-        if (_coinInstance is { activeSelf: true })
-            return;
-
-        _currentTimer += Time.deltaTime;
-        if (_currentTimer >= _currentSpawnInterval)
-        {
-            SpawnCoin();
-            _currentTimer = 0;
-            _currentSpawnInterval = GetNextRespawnTime();
-        }
+        StopCoroutine(_coinSpawner);
     }
 
     private void SpawnCoin()
@@ -45,4 +37,13 @@ public class CoinRegenerator : MonoBehaviour
     }
 
     private float GetNextRespawnTime() => Random.Range(_minRespawnInterval, _maxRespawnInterval);
+
+    private IEnumerator SpawnCoins()
+    {
+        while (true)
+        {
+            SpawnCoin();
+            yield return new WaitForSeconds(GetNextRespawnTime());          
+        }
+    }
 }
