@@ -13,3 +13,10 @@
 /UserInterface/MainMenu/obj/Release/Assembly-CSharp-firstpass.csproj.AssemblyReference.cache
 /UserInterface/MainMenu/obj/Release/Assembly-CSharp.csproj.AssemblyReference.cache
 /.vs
+/UserInterface/HealthBar/Assets/TextMesh Pro
+/UserInterface/HealthBar/Library
+/UserInterface/HealthBar/Logs
+/UserInterface/HealthBar/obj/Debug
+/UserInterface/HealthBar/Temp
+/UserInterface/MainMenu/UserSettings/Layouts
+/UserInterface/HealthBar/.vs/HealthBar/FileContentIndex
