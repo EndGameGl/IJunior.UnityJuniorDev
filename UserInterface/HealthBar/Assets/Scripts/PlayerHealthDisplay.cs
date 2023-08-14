@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,8 +18,9 @@ public class PlayerHealthDisplay : MonoBehaviour
     private float _fillSpeed;
 
     private Slider _slider;
-
     private float _targetValue;
+    private Coroutine _healthUpdater;
+    private WaitForEndOfFrame _frameAwaiter;
 
     private void Awake()
     {
@@ -26,15 +28,6 @@ public class PlayerHealthDisplay : MonoBehaviour
         _slider.value = (float)_playerHealth.Health / _playerHealth.MaxHealth;
         _targetValue = _slider.value;
         _fillImage.color = _gradient.Evaluate(_targetValue);
-    }
-
-    private void Update()
-    {
-        if (_slider.value != _targetValue)
-        {
-            _fillImage.color = _gradient.Evaluate(_targetValue);
-            _slider.value = Mathf.MoveTowards(_slider.value, _targetValue, Time.deltaTime * _fillSpeed);
-        }
     }
 
     private void OnEnable()
@@ -50,6 +43,20 @@ public class PlayerHealthDisplay : MonoBehaviour
     private void OnHealthChanged(int newValue)
     {
         _targetValue = (float)newValue / _playerHealth.MaxHealth;
-        //_slider.value = _targetValue;
+        if (_healthUpdater == null)
+        {
+            _healthUpdater = StartCoroutine(ChangeFillValue());
+        }
+    }
+
+    private IEnumerator ChangeFillValue()
+    {
+        while (_slider.value != _targetValue)
+        {
+            _fillImage.color = _gradient.Evaluate(_targetValue);
+            _slider.value = Mathf.MoveTowards(_slider.value, _targetValue, Time.deltaTime * _fillSpeed);
+            yield return _frameAwaiter;
+        }
+        _healthUpdater = null;
     }
 }
