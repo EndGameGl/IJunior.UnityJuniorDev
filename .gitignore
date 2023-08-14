@@ -10,3 +10,6 @@
 /UserInterface/MainMenu/.vs/MainMenu
 /UserInterface/MainMenu/Logs
 /CodeRecommendations/UnityJuniorDev_CodeRecommendations_3/UserSettings/Layouts/default-2023.dwlt
+/UserInterface/MainMenu/obj/Release/Assembly-CSharp-firstpass.csproj.AssemblyReference.cache
+/UserInterface/MainMenu/obj/Release/Assembly-CSharp.csproj.AssemblyReference.cache
+/.vs
