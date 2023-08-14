@@ -5,3 +5,4 @@
 | Название урока | Расположение |
 |----------------|-----------------|
 | Рекомендации по коду | Code Recommendations |
+| User Interface | User Interface |
