@@ -6,3 +6,4 @@
 |----------------|-----------------|
 | Рекомендации по коду | Code Recommendations |
 | User Interface | User Interface |
+| Практика - Swamp Attack с монетизацией | Swamp Attack |
