@@ -47,7 +47,7 @@ namespace Assets.Scripts.Weapons
 
         private void HandleCollision(GameObject target)
         {
-
+            Debug.Log($"Hit: {target.name}");
         }
     }
 }

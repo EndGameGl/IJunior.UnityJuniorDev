@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _player = GetComponent<Player>();
+
+        _player.Weapon.Equip();
     }
 
     private void Update()
