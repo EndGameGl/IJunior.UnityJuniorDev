@@ -52,7 +52,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,6 +109,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -116,10 +128,10 @@ TextureImporter:
       name: Props_0
       rect:
         serializedVersion: 2
-        x: 23
+        x: 24
         y: 0
-        width: 66
-        height: 148
+        width: 64
+        height: 147
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,10 +149,10 @@ TextureImporter:
       name: Props_1
       rect:
         serializedVersion: 2
-        x: 113
-        y: 127
-        width: 14
-        height: 18
+        x: 114
+        y: 128
+        width: 12
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,10 +170,10 @@ TextureImporter:
       name: Props_2
       rect:
         serializedVersion: 2
-        x: 143
-        y: 127
-        width: 18
-        height: 18
+        x: 144
+        y: 128
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,10 +191,10 @@ TextureImporter:
       name: Props_3
       rect:
         serializedVersion: 2
-        x: 177
-        y: 127
-        width: 14
-        height: 16
+        x: 178
+        y: 128
+        width: 12
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,10 +212,10 @@ TextureImporter:
       name: Props_4
       rect:
         serializedVersion: 2
-        x: 207
-        y: 127
-        width: 18
-        height: 18
+        x: 208
+        y: 128
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,10 +233,10 @@ TextureImporter:
       name: Props_5
       rect:
         serializedVersion: 2
-        x: 124
+        x: 125
         y: 0
-        width: 118
-        height: 100
+        width: 116
+        height: 99
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,14 +253,20 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e93a3b8ef7a294043ab0f3ea4979ffdf
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Props_0: 7265313343042191254
+      Props_1: -4871644234308700824
+      Props_2: 7466427622202046938
+      Props_3: 4489838820935638777
+      Props_4: -1870876656750283219
+      Props_5: -4004860913340282569
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
