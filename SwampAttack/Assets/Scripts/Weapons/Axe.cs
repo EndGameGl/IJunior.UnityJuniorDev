@@ -11,9 +11,6 @@ namespace Assets.Scripts.Weapons
         [SerializeField]
         private float _collisionDuration;
 
-        [field: SerializeField]
-        public override string WeaponAnimationName { get; protected set; }
-
         [SerializeField]
         private int _damage;
 
@@ -38,6 +35,11 @@ namespace Assets.Scripts.Weapons
             }
         }
 
+        public override void Die()
+        {
+            PlayerAnimator.PlayMeleeDeath();
+        }
+
         private IEnumerator Hit()
         {
             _isHitting = true;
@@ -55,5 +57,6 @@ namespace Assets.Scripts.Weapons
                 enemy.ApplyDamage(_damage);
             }
         }
+
     }
 }
