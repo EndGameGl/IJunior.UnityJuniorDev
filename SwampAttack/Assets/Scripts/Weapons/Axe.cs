@@ -19,12 +19,15 @@ namespace Assets.Scripts.Weapons
         public override void Equip()
         {
             PlayerAnimator.PlayMeleeEquipment();
+
+            _collisionDetector.gameObject.SetActive(true);
             _collisionDetector.OnCollisionEnter += HandleCollision;
         }
 
         public override void Unequip()
         {
             _collisionDetector.OnCollisionEnter -= HandleCollision;
+            _collisionDetector.gameObject.SetActive(false);
         }
 
         public override void Use()

@@ -9,12 +9,13 @@ namespace Assets.Scripts.Weapons
 
         public override void Equip()
         {
+            _shootPoint.gameObject.SetActive(true);
             PlayerAnimator.PlayEquipRanged();
         }
 
         public override void Unequip()
         {
-
+            _shootPoint.gameObject.SetActive(false);
         }
 
         public override void Use()

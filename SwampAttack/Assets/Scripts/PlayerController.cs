@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _player.EquipWeapon(_player.Weapons[0]);
-        _player.CurrentEquippedWeapon.Equip();
     }
 
     private void Update()

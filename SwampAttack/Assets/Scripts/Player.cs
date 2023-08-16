@@ -15,14 +15,14 @@ public class Player : MonoBehaviour
 
     public void EquipWeapon(Weapon weapon)
     {
-        CurrentEquippedWeapon = weapon;
-        weapon.enabled = true;
-        weapon.Equip();
-
         foreach (var item in Weapons.Where(x => x != weapon))
         {
             item.Unequip();
             item.enabled = false;
         }
+
+        CurrentEquippedWeapon = weapon;
+        weapon.enabled = true;
+        weapon.Equip();
     }
 }
