@@ -42,6 +42,7 @@ namespace Assets.Scripts
             if (collision.gameObject.TryGetComponent<Enemy>(out var enemy))
             {
                 enemy.TakeDamage(Damage);
+                Destroy(this.gameObject);
             }
         }
     }

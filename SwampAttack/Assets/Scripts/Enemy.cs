@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-    public abstract class Enemy : MonoBehaviour
+    public class Enemy : MonoBehaviour
     {
         [field: SerializeField]
         public int MaxHealth { get; private set; }

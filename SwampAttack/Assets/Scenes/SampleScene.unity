@@ -1290,6 +1290,7 @@ GameObject:
   - component: {fileID: 1445079654}
   - component: {fileID: 1445079658}
   - component: {fileID: 1445079657}
+  - component: {fileID: 1445079659}
   m_Layer: 0
   m_Name: Minotaur
   m_TagString: Untagged
@@ -1379,7 +1380,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445079653}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.56, y: -2.12, z: 0.082363844}
+  m_LocalPosition: {x: -2.97, y: -1.5, z: 0.082363844}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1420,7 +1421,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.37826443, y: 0.68647766}
+  m_Offset: {x: -0.14229512, y: 0.68647766}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.38361093, y: 0.23210628}
@@ -1430,7 +1431,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.25, y: 2.5625}
+  m_Size: {x: 2.208881, y: 2.5625}
   m_EdgeRadius: 0
 --- !u!50 &1445079658
 Rigidbody2D:
@@ -1459,6 +1460,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1445079659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445079653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c52b1899c13929641a7a6c98b9c6746c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 100
+  <Health>k__BackingField: 100
+  <Reward>k__BackingField: 5
+  _target: {fileID: 0}
 --- !u!1 &1489255379
 GameObject:
   m_ObjectHideFlags: 0
