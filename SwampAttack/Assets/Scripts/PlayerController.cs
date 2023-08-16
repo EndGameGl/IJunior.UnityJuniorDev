@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -11,14 +12,16 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        _player.EquipWeapon(_player.Weapons[0]);
+        var initialWeapon = _player.Weapons.FirstOrDefault();
+        if (initialWeapon is not null)
+            _player.EquipWeapon(initialWeapon);
     }
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            _player.CurrentEquippedWeapon.Use();
+            _player.CurrentEquippedWeapon?.Use();
         }
     }
 }

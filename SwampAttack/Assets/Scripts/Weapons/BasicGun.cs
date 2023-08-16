@@ -7,6 +7,9 @@ namespace Assets.Scripts.Weapons
         [SerializeField]
         private Transform _shootPoint;
 
+        [SerializeField]
+        private Bullet _bulletPrefab;
+
         public override void Equip()
         {
             _shootPoint.gameObject.SetActive(true);
@@ -21,6 +24,7 @@ namespace Assets.Scripts.Weapons
         public override void Use()
         {
             PlayerAnimator.PlayRangedAttack();
+            Instantiate(_bulletPrefab, _shootPoint.position, Quaternion.identity);
         }
 
         public override void Die()

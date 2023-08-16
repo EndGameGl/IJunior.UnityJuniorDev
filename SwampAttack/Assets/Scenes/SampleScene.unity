@@ -456,6 +456,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &465439431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 465439432}
+  m_Layer: 0
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &465439432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465439431}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.017, y: -0.378, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 824001594}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,6 +738,7 @@ GameObject:
   - component: {fileID: 824001599}
   - component: {fileID: 824001598}
   - component: {fileID: 824001597}
+  - component: {fileID: 824001600}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -779,6 +811,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 711013811}
+  - {fileID: 465439432}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -830,7 +863,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collisionDetector: {fileID: 711013808}
   _collisionDuration: 0.3
-  <WeaponAnimationName>k__BackingField: 
   _damage: 0
 --- !u!114 &824001598
 MonoBehaviour:
@@ -857,7 +889,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Health>k__BackingField: 100
-  <Weapon>k__BackingField: {fileID: 824001597}
+  <Weapons>k__BackingField:
+  - {fileID: 824001600}
+  - {fileID: 824001597}
+  <CurrentEquippedWeapon>k__BackingField: {fileID: 0}
+--- !u!114 &824001600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824001592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e397b62132377a64dbb864b932dbf0c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shootPoint: {fileID: 465439432}
+  _bulletPrefab: {fileID: 946818737296578237, guid: c778baed536202e4694b13c0a6b5fa55, type: 3}
 --- !u!1 &839033479
 GameObject:
   m_ObjectHideFlags: 0

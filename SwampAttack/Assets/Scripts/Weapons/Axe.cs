@@ -57,7 +57,7 @@ namespace Assets.Scripts.Weapons
         {
             if (target.TryGetComponent<Enemy>(out var enemy))
             {
-                enemy.ApplyDamage(_damage);
+                enemy.TakeDamage(_damage);
             }
         }
 
