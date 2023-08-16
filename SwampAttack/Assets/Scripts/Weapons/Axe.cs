@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace Assets.Scripts.Weapons
@@ -12,14 +11,17 @@ namespace Assets.Scripts.Weapons
         [SerializeField]
         private float _collisionDuration;
 
-        private bool _isHitting = false;
-
         [field: SerializeField]
         public override string WeaponAnimationName { get; protected set; }
 
+        [SerializeField]
+        private int _damage;
+
+        private bool _isHitting = false;
+
         public override void Equip()
         {
-            this.PlayerAnimator.PlayAxeEquipment();
+            PlayerAnimator.PlayMeleeEquipment();
             _collisionDetector.OnCollisionEnter += HandleCollision;
         }
 
@@ -39,6 +41,7 @@ namespace Assets.Scripts.Weapons
         private IEnumerator Hit()
         {
             _isHitting = true;
+            PlayerAnimator.PlayMeleeAttack();
             _collisionDetector.EnableCollisionDetection();
             yield return new WaitForSeconds(_collisionDuration);
             _collisionDetector.DisableCollisionDetection();
@@ -47,7 +50,10 @@ namespace Assets.Scripts.Weapons
 
         private void HandleCollision(GameObject target)
         {
-            Debug.Log($"Hit: {target.name}");
+            if (target.TryGetComponent<Enemy>(out var enemy))
+            {
+                enemy.ApplyDamage(_damage);
+            }
         }
     }
 }

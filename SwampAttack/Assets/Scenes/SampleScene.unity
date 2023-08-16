@@ -831,6 +831,7 @@ MonoBehaviour:
   _collisionDetector: {fileID: 711013808}
   _collisionDuration: 0.3
   <WeaponAnimationName>k__BackingField: 
+  _damage: 0
 --- !u!114 &824001598
 MonoBehaviour:
   m_ObjectHideFlags: 0
